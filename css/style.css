@@ -4,21 +4,43 @@
     font-family: 'Kharkiv Tone';
     src: url(../fonts/Kharkiv\ Tone\ 04.10.2020.ttf);
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 20px;
-    font-family: 'Manrope', sans-serif;
-    list-style: none;
-    text-decoration: none;
-    color: #fff;
-    outline: none;
-    border: none;
-}
+
 
 body{
+    margin: 0;
+    padding: 0;
     background-color: #0f0f0f;
+    font-size: 20px;
+    font-family: 'Manrope', sans-serif;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+a, button {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-family: 'Manrope', sans-serif;
+    text-decoration: none;
+    outline: none;
+    border: none;
+
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
 }
 
 .container { 
@@ -58,7 +80,7 @@ body{
 
 	font-weight: 400;
 	font-size: 78px;
-	font-family: "Kharkiv Tone";
+	font-family: "Kharkiv Tone", sans-serif;
 
 	text-transform: uppercase;
 }
@@ -276,25 +298,145 @@ body{
 
 /*ABOUT__END*/
 
+/* CAN WE ARE HELP__START */
+.services_block {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.services_title {
+    display: flex;
+}
+
+.service-wrapper {
+    margin-top: 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.service-wrapper-item {
+    display: grid;
+    grid-template-columns: auto 50px 310px;
+    align-items: center;
+    padding: 36px 0;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: #FFFFFF;
+    }
+}
+
+.service-wrapper-item__title {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.service-wrapper-item-bf_price {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.service-wrapper-item__price {
+    color: #FFF;
+    text-align: right;
+    font-family: "Kharkiv Tone", sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    &::after {
+        content: " ₽"
+    }
+}
+
+/* CAN WE ARE HELP__END */
+
+/* CONTACTS__START */
+
+.contacts_title {
+    color: #FFFFFF;
+    font-family: "Kharkiv Tone", sans-serif;
+    font-size: 78px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 121%;
+    text-transform: uppercase;
+    width: 1450px;
+    margin: 0 auto;
+}
+
+.contacts_title > span {
+    color: #BCFF00;
+}
+
+/* CONTACTS__END */
+
 /*FOOTER__START*/
 
-footer{
+footer {
     background-color: #fff;
     width: 100%;
+    color: #000;
+
+}
+
+footer > .container {
     padding: 50px 173px 145px;
+
 }
 
 .footer__items{
-    display: flex;
+    display: grid;
+    grid-template-columns: calc(252px + 189px) 100px 200px 168px ;
     justify-content: space-between;
 }
 
-.footer__item_title{
-    color: #000;
+.footer__item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.footer__links li a{
-    color: #000;
+.footer__item_title {
+    color: #0F0F0F;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 108%;
+    text-transform: uppercase;
+
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #454545;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 124.444%;
+}
+
+.footer__networks {
+    margin-top: -15px;
+    display: flex;
+    gap: 18px;
+}
+
+.footer__networks > * {
+    cursor: pointer;
 }
 
 /*FOOTER__END*/
