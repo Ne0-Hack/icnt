@@ -291,10 +291,52 @@ footer{
 
 .footer__item_title{
     color: #000;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 31px;
 }
 
 .footer__links li a{
     color: #000;
+    transition: all .4s ease    ;
+}
+
+.footer__links li a:hover{
+    color: #a7e204;
+}
+
+.footer__links{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer__item_description p{
+    color: #454545;
+    max-width: 199px;
+}
+
+.footer__address{
+    margin-bottom: 53px;
+}
+
+.footer__networks{
+    margin-top: -10px;
+    display: flex;
+    gap: 18px;
+}
+
+.footer__vk svg g path, .footer__teleg svg path{
+    transition: all .4s ease;
+}
+
+.footer__vk svg:hover g path{
+    fill: #a7e204;
+}
+
+.footer__teleg svg:hover path:nth-child(1){
+    fill: #a7e204;
 }
 
 /*FOOTER__END*/
