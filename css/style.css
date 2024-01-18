@@ -395,7 +395,7 @@ p {
     margin-bottom: 200px;
 }
 
-input{
+.contact_input{
     background-color: #0f0f0f;
     border: none;
     border-bottom: 1px solid white;
