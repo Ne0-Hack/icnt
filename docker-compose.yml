@@ -1,0 +1,22 @@
+version: "3.9"
+
+networks:
+  mynet:
+
+
+services:
+
+  mysql:
+    image: mysql
+    ports:
+      - "3300:3306"
+    expose:
+      - 3306
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: icnt
+
+    networks:
+      - mynet

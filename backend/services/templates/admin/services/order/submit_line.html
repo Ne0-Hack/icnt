@@ -1,0 +1,22 @@
+{% extends 'admin/submit_line.html' %}
+
+{% block submit-row %}
+
+
+{% if original.status == '0' %}
+  <input type="submit" value="Взять в работу" name="_onprogress"
+        style="background: blue">
+{% elif original.status == '1' %}
+  <input type="submit" value="Выполнен" name="_finished"
+        style="background: green">
+{% endif %}
+
+{% if original.status != '3' %}
+<input type="submit" value="Отменить" name="_remove"
+    style="background: red">
+{% else %}
+    <input type="submit" value="Взять в работу" name="_onprogress"
+        style="background: blue">
+{% endif %}
+
+{% endblock %}
