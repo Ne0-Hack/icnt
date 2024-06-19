@@ -32,7 +32,7 @@
 
 
 	const uploadImage = (file) => {
-		axios.putForm(`http://127.0.0.1:8000/users/${props.user_id}/`, {
+		axios.putForm(`${import.meta.env.backend}/users/${props.user_id}/`, {
 			'image': file
 		})
 				.then(e => {

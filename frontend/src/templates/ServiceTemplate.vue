@@ -25,7 +25,7 @@ const state = reactive({
 })
 
 const loadService = async () => {
-	const res = await  axios.get(`http://127.0.0.1:8000/services/service/${state.slug}`)
+	const res = await  axios.get(`${import.meta.env.backend}/services/service/${state.slug}`)
 	if (res.status === 200) {
 		state.service.id = res.data['id']
 		state.service.title = res.data['title']
@@ -36,7 +36,7 @@ const loadService = async () => {
 }
 
 const loadServices = async () => {
-	const res = await  axios.get(`http://127.0.0.1:8000/services/service/?l=2&e=${state.service.id}`)
+	const res = await  axios.get(`${import.meta.env.backend}/services/service/?l=2&e=${state.service.id}`)
 	if (res.status === 200) {
 		state.services = res.data
 	}

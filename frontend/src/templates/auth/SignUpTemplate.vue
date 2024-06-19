@@ -23,7 +23,7 @@ const state = reactive({
 
 const signUp = () => {
 	state.errors = []
-	axios.post("http://127.0.0.1:8000/users/", {
+	axios.post(`${import.meta.env.backend}/users/`, {
 		"login": state.login,
 		"first_name": state.first_name,
 		"last_name": state.last_name,

@@ -27,7 +27,7 @@ const router = useRouter()
 const store = useStore()
 
 const fetchUserData = () => {
-	axios.get('http://127.0.0.1:8000/users/')
+	axios.get(`${import.meta.env.backend}/users/`)
 			.then((e) => {
 				state.user.id = e.data['id']
 				state.user.login = e.data['login']

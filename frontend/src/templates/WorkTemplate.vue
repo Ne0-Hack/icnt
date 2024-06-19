@@ -12,7 +12,7 @@ const state = reactive({
 })
 
 const loadWorks = async () => {
-	const res = await  axios.get("http://127.0.0.1:8000/contents/works/")
+	const res = await  axios.get(`${import.meta.env.backend}/contents/works/`)
 	if (res.status === 200) {
 		state.works = res.data
 	}

@@ -12,7 +12,7 @@ const router = useRouter()
 
 const sendOrder = () => {
 	state.errors = []
-	axios.post("http://127.0.0.1:8000/services/order/", {
+	axios.post(`${import.meta.env.backend}/services/order/`, {
 		"serviceCategory": state.form.serviceCategory,
 		"description": state.form.description,
 		"deadline": state.form.deadline
@@ -32,7 +32,7 @@ const sendOrder = () => {
 }
 
 const loadServices = () => {
-	axios.get("http://127.0.0.1:8000/services/service")
+	axios.get(`${import.meta.env.backend}/services/service`)
 			.then((e) => {
 				state.storage.services = []
 				for (let el of e.data) {

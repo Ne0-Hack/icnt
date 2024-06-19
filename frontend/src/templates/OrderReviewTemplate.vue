@@ -11,7 +11,7 @@ const router = useRouter()
 
 const sendReview = () => {
 	state.errors = []
-	axios.post("http://127.0.0.1:8000/contents/reviews/", {
+	axios.post(`${import.meta.env.backend}/contents/reviews/`, {
 		"title": state.form.title,
 		"text": state.form.text,
 	})

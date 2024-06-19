@@ -11,7 +11,7 @@ const state = reactive({
 })
 
 const loadNews = async () => {
-	const res = await  axios.get(`http://127.0.0.1:8000/contents/reviews`)
+	const res = await  axios.get(`${import.meta.env.backend}/contents/reviews`)
 	if (res.status === 200) {
 		state.reviews = []
 		for (let el of res.data) {
