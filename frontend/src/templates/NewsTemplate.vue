@@ -22,7 +22,7 @@ const state = reactive({
 })
 
 const loadNews = async () => {
-	const res = await  axios.get(`${import.meta.env.backend}/contents/articles/${state.slug}`)
+	const res = await  axios.get(`${import.meta.env.VITE_API_ENDPOINT}/contents/articles/${state.slug}`)
 	if (res.status === 200) {
 		state.news.id = res.data['id']
 		state.news.title = res.data['title']

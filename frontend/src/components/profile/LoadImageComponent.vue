@@ -32,7 +32,7 @@
 
 
 	const uploadImage = (file) => {
-		axios.putForm(`${import.meta.env.backend}/users/${props.user_id}/`, {
+		axios.putForm(`${import.meta.env.VITE_API_ENDPOINT}/users/${props.user_id}/`, {
 			'image': file
 		})
 				.then(e => {

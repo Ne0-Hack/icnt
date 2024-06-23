@@ -9,7 +9,7 @@ const state = reactive({
 })
 
 const loadServices = async () => {
-	const res = await  axios.get(`${import.meta.env.backend}/services/service/?l=3`)
+	const res = await  axios.get(`${import.meta.env.VITE_API_ENDPOINT}/services/service/?l=3`)
 	if (res.status === 200) {
 		state.services = res.data
 	}

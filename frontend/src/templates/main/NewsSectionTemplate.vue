@@ -11,7 +11,7 @@ const state = reactive({
 })
 
 const loadNews = async () => {
-	const res = await  axios.get(`${import.meta.env.backend}/contents/articles`)
+	const res = await  axios.get(`${import.meta.env.VITE_API_ENDPOINT}/contents/articles`)
 	if (res.status === 200) {
 		state.news = []
 		for (let el of res.data) {

@@ -12,7 +12,7 @@ const state = reactive({
 })
 
 const loadWorks = async () => {
-	const res = await  axios.get(`${import.meta.env.backend}/contents/works/`)
+	const res = await  axios.get(`${import.meta.env.VITE_API_ENDPOINT}/contents/works/`)
 	if (res.status === 200) {
 		state.works = res.data
 	}
@@ -38,7 +38,7 @@ onBeforeMount(async () => {
 				:checklist="val.tasks"
 				:image-a="val.imageA"
 				:image-b="val.imageB"
-				:reverse="key"
+				:reverse="key % 2 === 0"
 			/>
 		</template>
 	</SectionComponent>

@@ -5,6 +5,7 @@ import {reactive} from "vue";
 import axios from "axios";
 import {useStore} from "vuex";
 import {useRouter} from "vue-router";
+import SelectComponent from "@components/app/SelectComponent.vue";
 
 const store = useStore()
 const router = useRouter()
@@ -23,7 +24,7 @@ const state = reactive({
 
 const signUp = () => {
 	state.errors = []
-	axios.post(`${import.meta.env.backend}/users/`, {
+	axios.post(`${import.meta.env.VITE_API_ENDPOINT}/users/`, {
 		"login": state.login,
 		"first_name": state.first_name,
 		"last_name": state.last_name,
@@ -85,10 +86,13 @@ const signUp = () => {
 														type="number"
 														name="age"
 				/>
-				<InputAuthComponent placehloder="Страна"
-														:error="state.errors['country']"
-														@onInput="val => state.country = val"
-														name="country"
+				<SelectComponent placehloder="Страна"
+												 :options="[{id: 0, title: 'Россия'}, {id: 1, title: 'Казахстан'}, {id: 2, title: 'Беларусь'}]"
+												 opt-id="id"
+												 opt-name="title"
+												 :error="state.errors['country']"
+												 @onInput="val => state.country = val"
+												 name="country"
 				/>
 				<InputAuthComponent placehloder="Почта"
 														:error="state.errors['email']"

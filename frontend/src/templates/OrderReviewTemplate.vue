@@ -11,7 +11,7 @@ const router = useRouter()
 
 const sendReview = () => {
 	state.errors = []
-	axios.post(`${import.meta.env.backend}/contents/reviews/`, {
+	axios.post(`${import.meta.env.VITE_API_ENDPOINT}/contents/reviews/`, {
 		"title": state.form.title,
 		"text": state.form.text,
 	})

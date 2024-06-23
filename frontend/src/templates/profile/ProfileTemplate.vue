@@ -8,6 +8,7 @@ import {useStore} from "vuex";
 import InfoSectionTemplate from "@templates/profile/InfoSectionTemplate.vue";
 import OrdersSectionTemplate from "@templates/profile/OrdersSectionTemplate.vue";
 import LoadImageComponent from "@components/profile/LoadImageComponent.vue";
+import LoadingSpinnerComponent from "@components/app/LoadingSpinnerComponent.vue";
 
 const state = reactive({
 	user: {
@@ -20,14 +21,16 @@ const state = reactive({
 		phone: "",
 		img: ""
 	},
-	orders: []
+	orders: [],
+	loading: false
 })
 
 const router = useRouter()
 const store = useStore()
 
 const fetchUserData = () => {
-	axios.get(`${import.meta.env.backend}/users/`)
+	state.loading = true
+	axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/`)
 			.then((e) => {
 				state.user.id = e.data['id']
 				state.user.login = e.data['login']
@@ -49,6 +52,7 @@ const fetchUserData = () => {
 					}
 					state.orders.push(el)
 				}
+				state.loading = false
 			})
 			.catch((e) => {
 				router.push({'name': 'signin'})
@@ -67,7 +71,10 @@ onBeforeMount(() => {
 </script>
 
 <template>
-	<div class="container">
+	<div v-if="state.loading" class="flex flex-col items-center justify-center">
+		<LoadingSpinnerComponent />
+	</div>
+	<div v-else class="container">
 		<div id="header" class="mt-[75px] p-[56px] flex gap-[92px] bg-[#222222] rounded-[10px]">
 			<LoadImageComponent :img="state.user.img" :user_id="state.user.id" @refresh="fetchUserData()" />
 			<InfoSectionTemplate v-bind="state.user" />

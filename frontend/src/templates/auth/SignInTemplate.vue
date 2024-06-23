@@ -18,7 +18,7 @@ const state = reactive({
 
 const signIn = () => {
 	state.errors = []
-	axios.post(`${import.meta.env.backend}/auth/`, {
+	axios.post(`${import.meta.env.VITE_API_ENDPOINT}/auth/`, {
 		"username": state.username,
 		"password": state.password
 	})

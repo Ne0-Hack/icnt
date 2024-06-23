@@ -1,6 +1,6 @@
 <script setup>
 import no_photo from "@images/no_photo.svg"
-import {onBeforeMount, reactive, toRef} from "vue";
+import {onBeforeMount, onMounted, reactive, toRef} from "vue";
 import axios from "axios";
 
 const props = defineProps({
@@ -72,16 +72,18 @@ const styleImg = {
 	'opacity': props.blackout ? '0.2' : '1'
 }
 
-onBeforeMount(async () => {
-	try {
-		const request = await axios.head(state.img)
-		if (request.status !== 200) {
-			state.no_image = true
-		}
-	} catch (e) {
-		state.no_image = true
-
-	}
+onMounted(async () => {
+	// try {
+	// 	const request = await axios.get(state.img)
+	// 	console.log(request.status)
+	// 	if (request.status !== 200) {
+	// 		state.no_image = true
+	// 	} else if (state.img.length <= 0) {
+	// 		state.no_image = true
+	// 	}
+	// } catch (e) {
+	// 	console.log(e)
+	// }
 })
 
 </script>
